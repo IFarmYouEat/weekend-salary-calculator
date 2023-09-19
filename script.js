@@ -1,5 +1,10 @@
 console.log("Hello World!")
 let employeeRow = document.querySelector("#employee-table");
+let monthlySalaryDiv = document.querySelector('#monthly-salary');
+
+let totalSalary = 0;
+
+
 
 //clear out initial inputs.
     document.querySelector('#first-name').value = '';
@@ -8,7 +13,7 @@ let employeeRow = document.querySelector("#employee-table");
     document.querySelector('#job-title').value = '';
     document.querySelector('#salary').value = '';
     
-    
+
 function addEmployee(event){
     
     let firstName = document.querySelector('#first-name').value;
@@ -17,8 +22,8 @@ function addEmployee(event){
     let jobTitle = document.querySelector('#job-title').value;
     let salary = document.querySelector('#salary').value;
     
-
-
+    totalSalary += salary;
+    let monthlySalary = (totalSalary / 12).toFixed(2);
 
     employeeRow.innerHTML += `
         <tr>
@@ -30,6 +35,10 @@ function addEmployee(event){
             <td><button onClick="removeRow(event)">Remove</button></td>
         </tr>
     `
+    monthlySalaryDiv.innerHTML =`
+        <h3>$ ${monthlySalary}</h3>
+    `
+
     //clear out inputs
     document.querySelector('#first-name').value = '';
     document.querySelector('#last-name').value = '';
@@ -44,3 +53,4 @@ function addEmployee(event){
 function removeRow(event){
     event.target.parentElement.parentElement.remove();
 }
+
