@@ -15,7 +15,7 @@
 
     <div id="employee-inputs">
         <h3>Add Employee</h3>
-        <form>
+        <form onSubmit="addEmployee(event)">
             <input type="text" id="first-name" value="First Name">
             <input type="text" id="last-name" value="Last Name">
             <input type="text" id="ID" value="ID">
@@ -25,18 +25,23 @@
         </form>
     </div>
 
-    <div id="employee-table">
+    <div>
 
         <h3>Employees</h3>
 
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Salary</th>
-            <th></th>
-        </tr>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Salary</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="employee-table">
+
+        </tbody>
     </div>
 
 
