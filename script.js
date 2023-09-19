@@ -1,9 +1,9 @@
 console.log("Hello World!")
-let employeeList = document.querySelector("#employee-table");
+let employeeRow = document.querySelector("#employee-table");
 
 function addEmployee(event){
-    event.preventDefault();
-    employeeList.innerHTML += `
+    
+    employeeRow.innerHTML += `
         <tr>
             <td>First Name</td>
             <td>Last Name</td>
@@ -12,5 +12,5 @@ function addEmployee(event){
             <td>Salary</td>
         </tr>
     `
-
+    event.preventDefault();
 }
