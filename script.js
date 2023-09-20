@@ -31,8 +31,13 @@ function addEmployee(event){
             <td><button onClick="removeRow(event,${employeeIndex})">Remove</button></td>
         </tr>
     `
+    employeeIndex ++;
+
     // update monthly salary
-    monthlySalaryCalc(salary);
+    salaryArray.push(Number(salary));
+
+
+    monthlySalaryCalc();
 
 
     //clear out inputs
@@ -50,17 +55,16 @@ function clearInputs(){
     document.querySelector('#salary').value = '';
 }
 
-function monthlySalaryCalc(salary){
-    salaryArray.push(salary);
-
+function monthlySalaryCalc(){
+    
     let totalSalary = 0;
 
     for(let income of salaryArray){
         totalSalary += income;
     }
 
-    let monthlySalary = totalSalary / 12;
-
+    let monthlySalary = (totalSalary / 12);
+    
     monthlySalaryDiv.innerHTML =`
         <h3>${currency.format(monthlySalary)}</h3>
     `
