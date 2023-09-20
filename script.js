@@ -73,7 +73,7 @@ function monthlySalaryCalc(){
 
 function removeRow(event,index){
     event.target.parentElement.parentElement.remove();
-    salaryArray.splice(index,1);
+    salaryArray[index] = 0;
     monthlySalaryCalc();
 }
 
