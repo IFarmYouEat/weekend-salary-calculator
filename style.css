@@ -1,4 +1,11 @@
 header{
     text-align: center;
+    background-color: grey;
+    color: white;
+}
+
+table, td {
+    width: 85%;
+    border: 2px solid;
 }
 

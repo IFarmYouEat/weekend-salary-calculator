@@ -1,8 +1,8 @@
 console.log("Hello World!")
 
 let employeeRow = document.querySelector("#employee-table");
-let monthlySalaryDiv = document.querySelector('#monthly-salary');
 
+let monthlySalaryDiv = document.querySelector('#monthly-salary');
 
 let employeeIndex = 0;
 
@@ -13,7 +13,6 @@ let currency = Intl.NumberFormat('en-US',{
     currency: "USD",
 });
    
-
 function addEmployee(event){
     let firstName = document.querySelector('#first-name').value;
     let lastName = document.querySelector('#last-name').value;
@@ -31,14 +30,14 @@ function addEmployee(event){
             <td><button onClick="removeRow(event,${employeeIndex})">Remove</button></td>
         </tr>
     `
+
+    // increase employee index to keep track of where the salary is located.
     employeeIndex ++;
 
     // update monthly salary
     salaryArray.push(Number(salary));
 
-
     monthlySalaryCalc();
-
 
     //clear out inputs
     clearInputs();
@@ -57,17 +56,26 @@ function clearInputs(){
 
 function monthlySalaryCalc(){
     
+    // declare total Salary and set it to zero.
     let totalSalary = 0;
 
+    // run through salaryArray and add into totalSalary
     for(let income of salaryArray){
         totalSalary += income;
     }
 
+    // declare monthlySalary and devide the total by 12 to return the monthly salary.
     let monthlySalary = (totalSalary / 12);
-    
+   
+    // append the DOM with new information
     monthlySalaryDiv.innerHTML =`
-        <h3>${currency.format(monthlySalary)}</h3>
+        <h4>Total Monthly: ${currency.format(monthlySalary)}</h4>
     `
+    if(monthlySalary >= 20000){
+        document.getElementById('monthly-salary').style.backgroundColor ='red';
+    }else{
+        document.getElementById('monthly-salary').style.backgroundColor ='white';
+    }
 
 }
 
@@ -79,4 +87,4 @@ function removeRow(event,index){
 
 //clear out initial inputs.
 clearInputs();
- 
+monthlySalaryCalc();
