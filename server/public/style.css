@@ -4,8 +4,13 @@ header{
     color: white;
 }
 
-table, td {
-    width: 85%;
+table, td, th {
     border: 2px solid;
+    border-collapse: collapse;
+}
+
+td, th{
+    width: 10%;
+    text-align: center;
 }
 
